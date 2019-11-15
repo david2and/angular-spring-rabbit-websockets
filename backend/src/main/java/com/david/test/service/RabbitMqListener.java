@@ -8,6 +8,8 @@ import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+
 @Service
 public class RabbitMqListener {
 
@@ -28,11 +30,12 @@ public class RabbitMqListener {
         System.out.println(message.toString());
         System.out.println(message.getText());
 
-        template.setMessageConverter(new MappingJackson2MessageConverter());
+        //template.setMessageConverter(new MappingJackson2MessageConverter());
+        Random rand = new Random();
 
 
         template.convertAndSend("/topic/responses",
-                new UrlValidationResponse("Hello, " + message.getText()) + "!");
+                new UrlValidationResponse(message.getText()+" - Value: "+ rand.nextFloat()));
     }
 
     //@SendTo("/topic/greetings")

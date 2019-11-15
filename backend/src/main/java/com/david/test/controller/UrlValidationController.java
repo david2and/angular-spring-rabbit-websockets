@@ -19,7 +19,7 @@ public class UrlValidationController {
     public UrlValidationResponse greeting(UrlValidationRequest message) throws Exception {
         rabbitMQSender.sendMessage(message);
 
-        return new UrlValidationResponse("Hello, " + HtmlUtils.htmlEscape(message.getText()) + "!");
+        return new UrlValidationResponse("Url, " + HtmlUtils.htmlEscape(message.getText()));
     }
 
 }

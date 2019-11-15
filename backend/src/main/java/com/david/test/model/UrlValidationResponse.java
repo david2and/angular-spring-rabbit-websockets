@@ -16,7 +16,7 @@ public class UrlValidationResponse {
 
     @Override
     public String toString() {
-        return "UrlValidationResponse{" +
+        return "{" +
                 "content='" + content + '\'' +
                 '}';
     }
